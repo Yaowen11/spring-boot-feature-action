@@ -1,0 +1,18 @@
+{
+  "properties": [
+    {
+      "name": "page.size",
+      "type": "java.lang.String",
+      "description": "Description for page.size."
+    },
+    {
+      "name": "author",
+      "type": "java.lang.String",
+      "description": "Description for author."
+    },
+    {
+      "name": "app.name",
+      "type": "java.lang.String",
+      "description": "Description for app.name."
+    }
+  ] }
