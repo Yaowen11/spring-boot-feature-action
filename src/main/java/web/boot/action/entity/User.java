@@ -39,6 +39,7 @@ public class User {
         this.lastName = lastName;
         this.phone = phone;
     }
+
     public int getId() {
         return id;
     }
@@ -60,7 +61,7 @@ public class User {
     }
 
     public void setLastName(String lastName) {
-        lastName = lastName;
+        this.lastName = lastName;
     }
 
     public String getPhone() {
