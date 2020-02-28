@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 import web.boot.action.entity.Book;
 import web.boot.action.repository.BookRepository;
@@ -62,5 +61,10 @@ public class BookController {
     public Page<Book> index(@PathVariable int page, @RequestParam int perPage) {
         Pageable pageable = PageRequest.of(page, perPage);
         return bookRepository.findAll(pageable);
+    }
+
+    @GetMapping("/books/author")
+    public List<Book> authorBook(@RequestParam String author) {
+        return bookRepository.findAuthorBooks(author);
     }
 }

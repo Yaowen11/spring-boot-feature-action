@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="web.boot.action.dao.UserMapper">
+    <resultMap id="user" type="web.boot.action.entity.User"/>
+    <parameterMap id="user" type="web.boot.action.entity.User"/>
+    <select id="findUserByUsername" parameterType="String" resultMap="user">
+        SELECT * FROM users WHERE username=#{1}
+    </select>
+    <select id="index" resultType="web.boot.action.entity.User" resultSets="user">
+        SELECT * FROM users order by #{1} #{2} limit #{3}, #{4}
+    </select>
+</mapper>

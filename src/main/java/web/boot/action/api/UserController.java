@@ -22,12 +22,12 @@ public class UserController {
     private JdbcTemplate jdbcTemplate;
     @PostMapping("/users/user")
     public int store(@RequestParam String firstName, @RequestParam String lastName, @RequestParam String phone) {
-        return jdbcTemplate.update("INSERT INTO users ( first_name, last_name, phone) values (?, ?, ?)", firstName, lastName, phone);
+        return jdbcTemplate.update("INSERT INTO users (firstName, lastName, phone) values (?, ?, ?)", firstName, lastName, phone);
     }
 
     @PostMapping("/users/batch")
     public JsonData batchStore(@RequestParam int batch) {
-        String insertSql = "INSERT INTO users (first_name, last_name, phone) values (?, ?, ?)";
+        String insertSql = "INSERT INTO users (firstName, lastName, phone) values (?, ?, ?)";
         List<Object[]> params = new ArrayList<>();
         User current;
         for (int i  = 1; i <= batch; i++) {

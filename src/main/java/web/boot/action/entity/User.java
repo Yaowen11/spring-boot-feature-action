@@ -12,6 +12,7 @@ public class User {
     private String firstName;
     private String lastName;
     private String phone;
+    private String username;
 
     public static final Map<Integer, User> USERS = new HashMap<>();
 
@@ -31,6 +32,14 @@ public class User {
 
     public User() {
 
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public User(int id, String firstName, String lastName, String phone) {
