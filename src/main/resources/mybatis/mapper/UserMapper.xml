@@ -7,6 +7,6 @@
         SELECT * FROM users WHERE username=#{1}
     </select>
     <select id="index" resultType="web.boot.action.entity.User" resultSets="user">
-        SELECT * FROM users order by #{1} #{2} limit #{3}, #{4}
+        SELECT * FROM users order by ${orderColumn} ${order} limit ${start}, ${end}
     </select>
 </mapper>

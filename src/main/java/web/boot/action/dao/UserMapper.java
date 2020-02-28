@@ -28,9 +28,9 @@ public interface UserMapper {
      * 列表
      * @param orderColumn 排序字段
      * @param order 顺序
-     * @param page page
-     * @param perPage size
+     * @param start start
+     * @param end end
      * @return list
      */
-    List<User> index(String orderColumn, String order, int page, int perPage);
+    List<User> index(String orderColumn, String order, int start, int end);
 }
