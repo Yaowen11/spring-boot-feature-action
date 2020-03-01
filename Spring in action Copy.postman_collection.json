@@ -1,0 +1,859 @@
+{
+	"info": {
+		"_postman_id": "4b2a784d-dd01-40ba-aa85-3eca17874100",
+		"name": "Spring in action Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "web",
+			"item": [
+				{
+					"name": "读取application.properties 配置",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/config",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"config"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "自定义配置失败",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{host}}/config/mysql",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"config",
+								"mysql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "普通 mvc 请求",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{host}}/hello/zyw?age=28",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"hello",
+								"zyw"
+							],
+							"query": [
+								{
+									"key": "age",
+									"value": "28"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "webflux 请求",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{host}}/users/2",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "webflux 返回list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{host}}/users/list/1",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"list",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "单个文件上传",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/z/Pictures/Camera Roll/何文利.jpg"
+								}
+							],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}/single/upload",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"single",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "多文件上传",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/z/Pictures/Camera Roll/何文利.jpg"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/z/Pictures/Camera Roll/zyw.jpg"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/z/Documents/settings.jar"
+								}
+							],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}/uploads",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"uploads"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "下载文件",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{host}}/download/settings.jar",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"download",
+								"settings.jar"
+							]
+						},
+						"description": "浏览器打开"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "database",
+			"item": [
+				{
+					"name": "jdbc",
+					"item": [
+						{
+							"name": "使用 jdbc 插入单条数据",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "firstName",
+											"value": "史蒂夫",
+											"type": "text"
+										},
+										{
+											"key": "lastName",
+											"value": "乔布斯",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "13800138001",
+											"type": "text"
+										}
+									],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "http://{{host}}/users/user",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "jdbc 批量插入",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "batch",
+											"value": "10",
+											"type": "text"
+										}
+									],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "http://{{host}}/users/batch",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"batch"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "jdbc 查询多条返回 list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{host}}/users/page/1?perPage=4",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"page",
+										"1"
+									],
+									"query": [
+										{
+											"key": "perPage",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "jdbc 获取单个 map",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{host}}/users/index/3",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"index",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "jdbc 获取单个实体",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{host}}/users/single/4",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"single",
+										"4"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "jpa",
+					"item": [
+						{
+							"name": "创建实体",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "author",
+											"value": "杨洋",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "spring boot 2 实战",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "24.5",
+											"type": "text"
+										},
+										{
+											"key": "online",
+											"value": "2019",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "这是一本垃圾的不能再垃圾的书",
+											"type": "text"
+										},
+										{
+											"key": "saleAmount",
+											"value": "15",
+											"type": "text"
+										}
+									],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "http://{{host}}/books/book",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"books",
+										"book"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "更新实体",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "author",
+											"value": "杨洋",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "spring boot 2 实战",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "12",
+											"type": "text"
+										},
+										{
+											"key": "online",
+											"value": "2019",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "这是一本垃圾的不能再垃圾的书",
+											"type": "text"
+										},
+										{
+											"key": "saleAmount",
+											"value": "15",
+											"type": "text"
+										}
+									],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "http://{{host}}/books/1",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"books",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "删除单个",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://{{host}}/books/13",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"books",
+										"13"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "获取列表分页",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{host}}/books/index/2?perPage=4",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"books",
+										"index",
+										"2"
+									],
+									"query": [
+										{
+											"key": "perPage",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "查询单个实体",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{host}}/books/book/2",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"books",
+										"book",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "自定义简单 sql 查询",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{host}}/books/author?author=泥瓦匠",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"books",
+										"author"
+									],
+									"query": [
+										{
+											"key": "author",
+											"value": "泥瓦匠"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "mybatis",
+					"item": [
+						{
+							"name": "查询单条",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{host}}/user/mybatis/username?username=Tomcat",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"user",
+										"mybatis",
+										"username"
+									],
+									"query": [
+										{
+											"key": "username",
+											"value": "Tomcat"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "获取列表",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{host}}/user/mybatis/list",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"user",
+										"mybatis",
+										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "mybatis 获取列表",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{host}}/user/mybatis/1?perPage=5&orderColumn=username&order=desc",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"user",
+										"mybatis",
+										"1"
+									],
+									"query": [
+										{
+											"key": "perPage",
+											"value": "5"
+										},
+										{
+											"key": "orderColumn",
+											"value": "username"
+										},
+										{
+											"key": "order",
+											"value": "desc"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "redis",
+					"item": [
+						{
+							"name": "插入",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "拉里-佩奇",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "text"
+										}
+									],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "http://{{host}}/members/member",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"members",
+										"member"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "redis获取单个",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{host}}/members/6",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"members",
+										"6"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "mq",
+			"item": [
+				{
+					"name": "rabbit直连队列",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "房似锦",
+									"type": "text"
+								},
+								{
+									"key": "introduce",
+									"value": "qwerty",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "512.239",
+									"type": "text"
+								}
+							],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}/rabbit/send/direct",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"rabbit",
+								"send",
+								"direct"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "rabbit topic 模式",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "徐文昌",
+									"type": "text"
+								},
+								{
+									"key": "introduce",
+									"value": "一个店长",
+									"type": "text"
+								}
+							],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}/rabbit/send/topic",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"rabbit",
+								"send",
+								"topic"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "rabbitmq fanout 模式",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Tim",
+									"type": "text"
+								},
+								{
+									"key": "introduce",
+									"value": "apple",
+									"type": "text"
+								}
+							],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}/rabbit/send/fanout",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"rabbit",
+								"send",
+								"fanout"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
